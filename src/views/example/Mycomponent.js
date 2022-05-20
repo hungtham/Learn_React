@@ -12,6 +12,10 @@ class Mycomponent extends React.Component {
             name: event.target.value
         })
     }
+
+    handleClickButton = () => {
+        alert("Clicked");
+    }
     render() {
         let name = 'Eric';
         return (
@@ -22,13 +26,15 @@ class Mycomponent extends React.Component {
                     <input value={this.state.name} type="text"
                         onChange={(event) => this.handleOnChangeName(event)} />
                     {console.log('My name is', name)}
-                    Hello my component, my name is {this.state['name']}
+                    Hello everyone, my name is {this.state['name']}
                 </div>
                 <div className="Second">
                     My school is: {this.state.school}
                 </div>
+                <div className="third">
+                    <button onClick={() => this.handleClickButton()}>Click Me!!</button>
+                </div>
             </div>
-
         )
 
     }
