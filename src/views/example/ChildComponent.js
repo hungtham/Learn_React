@@ -9,11 +9,11 @@ class ChildComponent extends React.Component {
         // let name = this.props.name;
         // let age = this.props.age;
         //shortcut
-        let { name, age } = this.props;
+        let { name, age, school } = this.props;
         return (
             <>
                 <div>
-                    ChildComponent: {name} -  {age}
+                    ChildComponent: {name} -  {age} - {school}
                 </div>
 
             </>
