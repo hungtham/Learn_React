@@ -23,7 +23,7 @@ class Mycomponent extends React.Component {
         alert('FirstName:' + this.state.firstName + '\nLastName' + this.state.lastName);
     }
     render() {
-        console.log('>>>>>>Render : ', this.state);
+        //console.log('>>>>>>Render : ', this.state);
         return (
             <>
                 <form >
@@ -38,13 +38,14 @@ class Mycomponent extends React.Component {
                         type="text"
                         value={this.state.lastName}
                         onChange={(event) => this.handleChangeLastName(event)} /><br />
+
                     <input type="button"
                         value="Submit"
                         onClick={(event) => this.handleSubmit(event)}
                     />
                 </form>
-                <ChildComponent name={'ChildComponent 1'} />
-                <ChildComponent name={'ChildComponent 2'} />
+                <ChildComponent name={'ChildComponent 1'} age={'25'} />
+                <ChildComponent name={'ChildComponent 2'} age={'20'} />
                 <ChildComponent name={'ChildComponent 3'} />
             </>
         )
