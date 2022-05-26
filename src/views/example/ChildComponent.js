@@ -1,73 +1,92 @@
 
 import React from "react";
 
-// class ChildComponent extends React.Component {
+class ChildComponent extends React.Component {
 
-//     render() {
-//         console.log('>>>>>check props : ', this.props);
+    //re-render
+    state = {
+        showJobs: false
+    };
 
-//         let { name, age, school, arrJobs } = this.props;
-//         let arr = '';
-//         return (
-//             <>
-//                 <div>
-//                     ChildComponent: {name} -  {age} - {school}
-//                 </div>
 
-//                 <div className="job-lists">
-//                     {
-//                         arr = arrJobs.map((item, index) => {
+    handleShowHide = (status) => {
+        this.setState({
+            showJobs: !this.state.showJobs
+        })
+    }
+    render() {
+        let { name, age, school, arrJobs } = this.props;
+        let { showJobs } = this.state;
+        let check = showJobs === true ? 'showJobs = true' : 'showJobs = false';
+        console.log('>>>> check conditional: ', check);
+        return (
+            <>
+                <div>ChildComponent: {name} -  {age} - {school}</div>
+
+                {showJobs === false ?
+                    <div>
+                        <button onClick={() => this.handleShowHide()}>Show</button>
+                    </div>
+                    : //condition output using state: run code after && when showJobs is true
+                    // must use <> </> : render block
+                    <>
+                        <div className="job-lists">
+                            {
+                                arrJobs.map((item, index) => {
+                                    return (
+                                        // use 'key' avoid error when sorting or filtering,...
+                                        <div key={item.id}>
+                                            {item.id} - {item.title} - {item.salary}
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+
+                        <div>
+                            <button onClick={() => this.handleShowHide()}>Hide</button>
+                        </div>
+                    </>
+                }
+            </>
+        )
+
+    }
+}
+
+
+
+// const ChildComponent = (props) => {
+//     console.log('>>>>>check child props', props);
+
+//     let { name, age, school, arrJobs } = props;
+//     let arr = '';
+//     return (
+//         <>
+//             <div>
+//                 ChildComponent: {name} -  {age} - {school}
+//             </div>
+
+//             <div className="job-lists">
+//                 {
+//                     arr = arrJobs.map((item, index) => {
+//                         if (item.salary >= 2500) {
 //                             return (
 //                                 // use 'key' avoid error when sorting or filtering,...
 //                                 <div key={item.id}>
-//                                     {item.id} - {item.title} - {item.salary}
+//                                     {item.id} - {item.title} - {item.salary}$
 //                                 </div>
 //                             )
-//                         })
-//                     }
+//                         }
+//                     })
+//                 }
 
-//                     {console.log('>>check map array : ', arr)}
-//                     {/* use arr to get return method map, map will render new array type:  Symbol(react.element)  */}
-//                 </div>
-//             </>
-//         )
-
-//     }
+//                 {console.log('>>check map array : ', arr)}
+//                 {/* use arr to get return method map, map will render new array type:  Symbol(react.element)  */}
+//             </div>
+//         </>
+//     )
 // }
-// // - khi mà có component k dùng state( k quan tâm dữ liệu có thay đổi hay không- nhận dữ liệu (props) như nào thì render như vậy) thi khi đó sử dụng function component
-//     - bản chất của function thì vẫn phải trả về : return
-//     - khi dùng arrow function thay cho class function thì không dùng được this(ex: this.props)
-//     - chú ý: chỉ dùng function component khi sử dụng reatc hook( chia cắt logic, ngắn gọn hơn)
-//         - còn nếu không thì cứ dùng class component< bởi sau này có thể sẽ render dữ liệu,...
-const ChildComponent = (props) => {
-    console.log('>>>>>check child props', props);
-
-    let { name, age, school, arrJobs } = props;
-    let arr = '';
-    return (
-        <>
-            <div>
-                ChildComponent: {name} -  {age} - {school}
-            </div>
-
-            <div className="job-lists">
-                {
-                    arr = arrJobs.map((item, index) => {
-                        return (
-                            // use 'key' avoid error when sorting or filtering,...
-                            <div key={item.id}>
-                                {item.id} - {item.title} - {item.salary}
-                            </div>
-                        )
-                    })
-                }
-
-                {console.log('>>check map array : ', arr)}
-                {/* use arr to get return method map, map will render new array type:  Symbol(react.element)  */}
-            </div>
-        </>
-    )
-}
 
 
 export default ChildComponent;
