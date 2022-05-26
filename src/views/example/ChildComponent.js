@@ -1,6 +1,8 @@
 
 import React from "react";
 
+// show hide, manage job's infomation
+
 class ChildComponent extends React.Component {
 
     //re-render
@@ -15,19 +17,18 @@ class ChildComponent extends React.Component {
         })
     }
     render() {
-        let { name, age, school, arrJobs } = this.props;
+        let { arrJobs } = this.props;
         let { showJobs } = this.state;
         let check = showJobs === true ? 'showJobs = true' : 'showJobs = false';
         console.log('>>>> check conditional: ', check);
         return (
             <>
-                <div>ChildComponent: {name} -  {age} - {school}</div>
 
                 {showJobs === false ?
                     <div>
                         <button onClick={() => this.handleShowHide()}>Show</button>
                     </div>
-                    : //condition output using state: run code after && when showJobs is true
+                    : //3 condition output using state: run code after && when showJobs is true
                     // must use <> </> : render block
                     <>
                         <div className="job-lists">
