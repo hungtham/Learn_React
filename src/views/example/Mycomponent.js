@@ -21,7 +21,7 @@ class Mycomponent extends React.Component {
         //     arrJobs: this.state.arrJobs.push(job),
         // })
     }
-
+    //https://youtu.be/ev8uNM4SNx4?list=PLncHg6Kn2JT4C0enPGQPK7ZIlEoZ1ZvRy&t=725
     render() {
         //console.log('>>>>>>Render : ', this.state);
         return (

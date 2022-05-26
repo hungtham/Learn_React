@@ -21,7 +21,11 @@ class AddComponent extends React.Component {
         event.preventDefault();
         //alert('Job:' + this.state.titleJob + '\nSalary: ' + this.state.salary);
         console.log('>>>>check data input:', this.state);
-        this.props.AddComponent('Hello from child');
+        this.props.addNewJob({
+            id: Math.random(),
+            titleJob: this.state.titleJob,
+            salary: this.state.salary,
+        });
     }
 
     render() {

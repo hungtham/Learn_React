@@ -37,7 +37,7 @@ class ChildComponent extends React.Component {
                                     return (
                                         // use 'key' avoid error when sorting or filtering,...
                                         <div key={item.id}>
-                                            {item.id} - {item.title} - {item.salary}
+                                            {item.id} - {item.titleJob} - {item.salary}
                                         </div>
                                     )
                                 })
