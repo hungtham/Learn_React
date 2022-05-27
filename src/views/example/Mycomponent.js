@@ -17,9 +17,18 @@ class MyComponent extends React.Component {
     addNewJob = (job) => {
         //let currentJob = this.state.arrJobs;
         console.log('check job from parent:', job);
+        //method 1
+        // this.setState({
+        //     // arrJobs: [...this.state.arrJobs, job],
+        // })
+        //method 2
+        let currentJobs = this.state.arrJobs;
+        currentJobs.push(job);
         this.setState({
-            arrJobs: [...this.state.arrJobs, job],
+            // arrJobs: [...this.state.arrJobs, job],
+            arrJobs: currentJobs,
         })
+
     }
     //https://youtu.be/ev8uNM4SNx4?list=PLncHg6Kn2JT4C0enPGQPK7ZIlEoZ1ZvRy&t=725
     render() {
