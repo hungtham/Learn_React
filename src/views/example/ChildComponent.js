@@ -56,38 +56,4 @@ class ChildComponent extends React.Component {
 }
 
 
-
-// const ChildComponent = (props) => {
-//     console.log('>>>>>check child props', props);
-
-//     let { name, age, school, arrJobs } = props;
-//     let arr = '';
-//     return (
-//         <>
-//             <div>
-//                 ChildComponent: {name} -  {age} - {school}
-//             </div>
-
-//             <div className="job-lists">
-//                 {
-//                     arr = arrJobs.map((item, index) => {
-//                         if (item.salary >= 2500) {
-//                             return (
-//                                 // use 'key' avoid error when sorting or filtering,...
-//                                 <div key={item.id}>
-//                                     {item.id} - {item.title} - {item.salary}$
-//                                 </div>
-//                             )
-//                         }
-//                     })
-//                 }
-
-//                 {console.log('>>check map array : ', arr)}
-//                 {/* use arr to get return method map, map will render new array type:  Symbol(react.element)  */}
-//             </div>
-//         </>
-//     )
-// }
-
-
 export default ChildComponent;

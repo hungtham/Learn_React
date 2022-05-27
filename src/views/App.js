@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.scss';
 
-import Mycomponent from './example/Mycomponent';
+import MyComponent from './example/MyComponent';
 
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
           Edit <code>src/App.js</code> and save to reload.
         </p>
 
-        <Mycomponent />
+        <MyComponent />
 
 
         {/* <Mycomponent></Mycomponent> */}

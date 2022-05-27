@@ -3,7 +3,7 @@ import React from "react";
 import ChildComponent from "./ChildComponent";
 import AddComponent from './AddComponent';
 
-class Mycomponent extends React.Component {
+class MyComponent extends React.Component {
 
     state = {
         arrJobs: [
@@ -17,9 +17,9 @@ class Mycomponent extends React.Component {
     addNewJob = (job) => {
         //let currentJob = this.state.arrJobs;
         console.log('check job from parent:', job);
-        // this.setState({
-        //     arrJobs: this.state.arrJobs.push(job),
-        // })
+        this.setState({
+            arrJobs: [...this.state.arrJobs, job],
+        })
     }
     //https://youtu.be/ev8uNM4SNx4?list=PLncHg6Kn2JT4C0enPGQPK7ZIlEoZ1ZvRy&t=725
     render() {
@@ -37,4 +37,4 @@ class Mycomponent extends React.Component {
 
     }
 }
-export default Mycomponent;
+export default MyComponent;
