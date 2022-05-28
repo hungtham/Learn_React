@@ -11,12 +11,11 @@ class MyComponent extends React.Component {
             { id: 'job2', titleJob: 'tester', salary: '2500' },
             { id: 'job3', titleJob: 'manager', salary: '5000' },
         ]
-
     };
     //add job from form
     addNewJob = (job) => {
         //let currentJob = this.state.arrJobs;
-        console.log('check job from parent:', job);
+        //console.log('check job from parent:', job);
         //method 1
         // this.setState({
         //     // arrJobs: [...this.state.arrJobs, job],
@@ -30,9 +29,23 @@ class MyComponent extends React.Component {
         })
 
     }
-    //https://youtu.be/ev8uNM4SNx4?list=PLncHg6Kn2JT4C0enPGQPK7ZIlEoZ1ZvRy&t=725
+    deleteOneJob = (job) => {
+        let currentJob = this.state.arrJobs;
+        currentJob = currentJob.filter(item => item.id !== job.id);
+        this.setState({
+            arrJobs: currentJob,
+        })
+    }
+    componentDidUpdate(prevProps, prevState) {//run after update,
+        console.log('>>>run didupdate ', 'prev state', prevState, 'current state', this.state);
+        // 'prev props', prevProps
+    }
+    componentDidMount() {//suitable for calling API from here
+        console.log('>>>run component did mount');//will run after render
+    }
+
     render() {
-        //console.log('>>>>>>Render : ', this.state);
+        console.log('>>>>>>Render : ', this.state);
         return (
             <>
                 <AddComponent
@@ -40,6 +53,7 @@ class MyComponent extends React.Component {
 
                 <ChildComponent
                     arrJobs={this.state.arrJobs}
+                    deleteOneJob={this.deleteOneJob}
                 />
             </>
         )

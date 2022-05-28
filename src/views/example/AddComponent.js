@@ -7,6 +7,7 @@ class AddComponent extends React.Component {
         titleJob: '',
         salary: '',
     }
+
     handleChangeTitleJob = (event) => {
         this.setState({
             titleJob: event.target.value
@@ -24,7 +25,7 @@ class AddComponent extends React.Component {
             alert('Missing required params');
             return;
         }
-        console.log('>>>>check data input:', this.state);
+        //console.log('>>>>check data input:', this.state);
         this.props.addNewJob({
             id: Math.floor(Math.random() * 111),
             titleJob: this.state.titleJob,
@@ -53,6 +54,7 @@ class AddComponent extends React.Component {
                     value={this.state.salary}
                     onChange={(event) => this.handleChangeSalary(event)} /><br />
 
+                <br></br>
                 <input type="button"
                     value="Submit"
                     onClick={(event) => this.handleSubmit(event)}

@@ -1,6 +1,6 @@
 
 import React from "react";
-
+import './Demo.scss'
 // show hide, manage job's infomation
 
 class ChildComponent extends React.Component {
@@ -16,6 +16,9 @@ class ChildComponent extends React.Component {
             showJobs: !this.state.showJobs
         })
     }
+    handleOnClickDelete = (job) => {
+        this.props.deleteOneJob(job);
+    }
     render() {
         let { arrJobs } = this.props;
         let { showJobs } = this.state;
@@ -26,7 +29,8 @@ class ChildComponent extends React.Component {
 
                 {showJobs === false ?
                     <div>
-                        <button onClick={() => this.handleShowHide()}>Show</button>
+                        <button className='btn-show'
+                            onClick={() => this.handleShowHide()}>Show</button>
                     </div>
                     : //3 condition output using state: run code after && when showJobs is true
                     // must use <> </> : render block
@@ -38,6 +42,7 @@ class ChildComponent extends React.Component {
                                         // use 'key' avoid error when sorting or filtering,...
                                         <div key={item.id}>
                                             {item.id} - {item.titleJob} - {item.salary}
+                                            <></><span onClick={() => this.handleOnClickDelete(item)}> x </span>
                                         </div>
                                     )
                                 })
